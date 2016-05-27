@@ -1,5 +1,5 @@
 const N: usize = 4;
-const XXX: u64 = 0xf;
+const MASK: u64 = 0xf;
 
 fn rref(matrix: [u64; N]) -> [u64; N] {
   let mut matrix_rref: [u64; N];
@@ -57,7 +57,7 @@ fn matrix(d: u64) -> [u64; N] {
 }
 
 fn cycle(d: u64, i: usize) -> u64 {
-  ((d << i) | (d >> (N - i))) & XXX
+  ((d << i) | (d >> (N - i))) & MASK
 }
 
 
@@ -69,7 +69,7 @@ fn printmat(matrix:[u64; N]) {
 
 
 fn main() {
-  let d: u64 = 0b11;
-  printmat(rref(matrix(d)));
-  println!("{}", dimension(matrix(d)));
+  for d in 0..MASK {
+    println!("{} {:04b}", dimension(matrix(d)), d);
+  }
 }
