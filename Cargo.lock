@@ -1,0 +1,4 @@
+[root]
+name = "rust-rref-binary"
+version = "0.1.0"
+
